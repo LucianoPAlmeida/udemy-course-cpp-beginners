@@ -10,6 +10,6 @@
 
 
 
-void Dog::noise() {
+void Dog::noise() const {
     std::cout << name <<" says UAU!" << std::endl;
 }

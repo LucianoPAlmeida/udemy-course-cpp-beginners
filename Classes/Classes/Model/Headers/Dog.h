@@ -15,7 +15,7 @@ private:
     std::string name;
 public:
     Dog(std::string name): name(name) {};
-    void noise();
+    void noise() const;
     
     std::string toString();
 };

@@ -55,6 +55,14 @@ void charArray() {
     std::cout << std::endl;
 }
 
+void refereces() {
+    int value1 = 10;
+    int &rValue = value1;
+    
+    rValue = 15;
+    std::cout << "Reference: " << value1 << std::endl;
+}
+
 int main(int argc, const char * argv[]) {
     
     int value = 6;
@@ -73,6 +81,8 @@ int main(int argc, const char * argv[]) {
     pointerIteration();
     
     charArray();
+    
+    refereces();
     return 0;
 }
 

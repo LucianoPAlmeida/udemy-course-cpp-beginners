@@ -18,7 +18,7 @@ public:
     void setName(std::string name);
     std::string getName();
     
-    void noise();
+    void noise() const;
     Cat(std::string name): name(name) {};
     ~Cat();
 };

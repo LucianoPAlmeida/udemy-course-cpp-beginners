@@ -8,7 +8,7 @@
 
 #include "Mouse.h"
 
-void Mouse::noise() {
+void Mouse::noise() const {
     std::cout << "I really don't know what noise " << name << " does" << std::endl;
 }
 

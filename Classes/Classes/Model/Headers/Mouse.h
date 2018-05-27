@@ -17,7 +17,7 @@ private:
     std::string name;
 public:
     Mouse(std::string name): name(name) {};
-    void noise();
+    void noise() const;
     ~Mouse();
 };
 
