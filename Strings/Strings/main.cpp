@@ -23,6 +23,8 @@ int main(int argc, const char * argv[]) {
     std::cout << array << ": " << std::flush;
     reverseChar(array, sizeof(array));
     std::cout << array << std::endl;
+    
+    delete reversed;
     return 0;
 }
 

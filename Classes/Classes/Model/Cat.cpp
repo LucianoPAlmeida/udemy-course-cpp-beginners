@@ -13,12 +13,17 @@ void Cat::setName(std::string name) {
     this->name = name;
 }
 
+Cat::Cat(const Cat& other) {
+    this->name = other.name;
+    std::cout << "Copy constructor" << std::endl;
+}
+
 std::string Cat::getName() {
     return name;
 }
 
 Cat::~Cat() {
-    std::cout << "Cat is Dead." << std::endl;
+    std::cout << "Cat " << name << " dealocated." << std::endl;
 }
 
 void Cat::noise() const {

@@ -14,7 +14,9 @@ class Dog {
 private:
     std::string name;
 public:
+    Dog();
     Dog(std::string name): name(name) {};
+    ~Dog();
     void noise() const;
     
     std::string toString();

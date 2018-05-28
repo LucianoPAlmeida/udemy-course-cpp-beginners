@@ -19,7 +19,9 @@ public:
     std::string getName();
     
     void noise() const;
+    Cat() {};
     Cat(std::string name): name(name) {};
+    Cat(const Cat& other);
     ~Cat();
 };
 

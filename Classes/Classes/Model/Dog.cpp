@@ -8,8 +8,13 @@
 #include <iostream>
 #include "Dog.h"
 
-
-
 void Dog::noise() const {
     std::cout << name <<" says UAU!" << std::endl;
+}
+
+Dog::~Dog() {
+    std::cout << "Dog " << name << " deallocated." << std::endl;
+}
+
+Dog::Dog(): name("unknow name"){
 }

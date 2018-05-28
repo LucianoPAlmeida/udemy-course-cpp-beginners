@@ -13,5 +13,5 @@ void Mouse::noise() const {
 }
 
 Mouse::~Mouse() {
-    std::cout << "The mouse is dead" << std::endl;
+    std::cout << "The mouse " << name << " deallocated." << std::endl;
 }

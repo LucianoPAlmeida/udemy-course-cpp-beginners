@@ -11,6 +11,12 @@
 
 using namespace std;
 
+void show1(string* texts, int length) {
+    for(int i = 0; i < length; i++) {
+        cout << texts[i] << endl;
+    }
+}
+
 int main(int argc, const char * argv[]) {
     
     
@@ -25,6 +31,11 @@ int main(int argc, const char * argv[]) {
     }
     
     doSomething();
+    
+    // Arrays and functions
+    string texts[] = {"apple", "orange", "banana"};
+    show1(texts, 3);
+    
     return 0;
 }
 

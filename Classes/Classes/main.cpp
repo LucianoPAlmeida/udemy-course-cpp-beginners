@@ -11,11 +11,13 @@
 #include "Cat.h"
 #include "Dog.h"
 #include "Mouse.h"
+Cat* giveMeACat() {
+    return new Cat("A Cat");
+}
 
 int main(int argc, const char * argv[]) {
-    auto * jimmy = new Cat("Jimmy");
+    Cat * jimmy = new Cat("Jimmy");
     Mouse * jerry = new Mouse("Jerry");
-    
     Dog snoop("Snoop");
     jimmy->noise();
     snoop.noise();
@@ -29,5 +31,25 @@ int main(int argc, const char * argv[]) {
     std::stringstream ss;
     ss << "Number is : " << i;
     std::cout << ss.str() << std::endl;
+
+    // Copy constructor
+    Cat c1("C1");
+    Cat c2 = c1;
+    c2.setName("C2");
+    c1.noise();
+    c2.noise();
+
+    // Returning
+    Cat* a = giveMeACat();
+    a->noise();
+    
+    // Memory allocation
+    Cat * cats = new Cat[10];
+    char name = 'a';
+    for (int i = 0; i < 10; i++) {
+        cats[i].setName(std::string(1, name + i));
+    }
+    delete [] cats;
+    
     return 0;
 }
