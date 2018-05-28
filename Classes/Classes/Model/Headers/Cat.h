@@ -9,12 +9,12 @@
 #ifndef CAT_H_
 #define CAT_H_
 #include <iostream>
-
-class Cat {
+#include "Animal.h"
+class Cat: public Animal {
 private:
     std::string name;
 public:
-    
+    typedef Animal super;
     void setName(std::string name);
     std::string getName();
     

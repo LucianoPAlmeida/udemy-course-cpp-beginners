@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B24FDE2820BB98050044766D /* Animal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B24FDE2620BB98050044766D /* Animal.cpp */; };
 		B2720A7D20B3AA40000B3422 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2720A7C20B3AA40000B3422 /* main.cpp */; };
 		B2720A8520B3AA6C000B3422 /* Cat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2720A8320B3AA6C000B3422 /* Cat.cpp */; };
 		B2720A8A20B3AF04000B3422 /* Dog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2720A8820B3AF04000B3422 /* Dog.cpp */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B24FDE2620BB98050044766D /* Animal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Animal.cpp; sourceTree = "<group>"; };
+		B24FDE2720BB98050044766D /* Animal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
 		B2720A7920B3AA40000B3422 /* Classes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Classes; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2720A7C20B3AA40000B3422 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B2720A8320B3AA6C000B3422 /* Cat.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Cat.cpp; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 			children = (
 				B2720A8720B3AECC000B3422 /* Headers */,
 				B2720A8320B3AA6C000B3422 /* Cat.cpp */,
+				B24FDE2620BB98050044766D /* Animal.cpp */,
 				B2720A8820B3AF04000B3422 /* Dog.cpp */,
 				B293C14420BA6B9200BAE175 /* Mouse.cpp */,
 			);
@@ -89,6 +93,7 @@
 				B293C14520BA6B9200BAE175 /* Mouse.h */,
 				B2720A8920B3AF04000B3422 /* Dog.h */,
 				B2720A8420B3AA6C000B3422 /* Cat.h */,
+				B24FDE2720BB98050044766D /* Animal.h */,
 			);
 			path = Headers;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B24FDE2820BB98050044766D /* Animal.cpp in Sources */,
 				B2720A8A20B3AF04000B3422 /* Dog.cpp in Sources */,
 				B2720A8520B3AA6C000B3422 /* Cat.cpp in Sources */,
 				B2720A7D20B3AA40000B3422 /* main.cpp in Sources */,

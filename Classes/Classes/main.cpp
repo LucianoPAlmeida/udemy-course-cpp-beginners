@@ -15,6 +15,10 @@ Cat* giveMeACat() {
     return new Cat("A Cat");
 }
 
+void noiseMaker(Animal * animal) {
+    animal->noise();
+}
+
 int main(int argc, const char * argv[]) {
     Cat * jimmy = new Cat("Jimmy");
     Mouse * jerry = new Mouse("Jerry");
@@ -50,6 +54,12 @@ int main(int argc, const char * argv[]) {
         cats[i].setName(std::string(1, name + i));
     }
     delete [] cats;
+    
+    // Inheritance
+    Cat * garfield = new Cat("Garfield");
+    Animal * animal = new Animal();
+    noiseMaker(garfield);
+    noiseMaker(animal);
     
     return 0;
 }

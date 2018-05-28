@@ -27,6 +27,7 @@ Cat::~Cat() {
 }
 
 void Cat::noise() const {
+    super::noise();
     std::cout << name <<" says Meouww!" << std::endl;
 }
 
