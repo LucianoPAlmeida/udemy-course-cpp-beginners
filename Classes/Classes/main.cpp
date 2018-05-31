@@ -20,6 +20,7 @@ void noiseMaker(Animal * animal) {
 }
 
 int main(int argc, const char * argv[]) {
+    
     Cat * jimmy = new Cat("Jimmy");
     Mouse * jerry = new Mouse("Jerry");
     Dog snoop("Snoop");
