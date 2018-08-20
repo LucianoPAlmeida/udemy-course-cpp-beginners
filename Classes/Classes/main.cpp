@@ -22,6 +22,7 @@ void noiseMaker(Animal * animal) {
 int main(int argc, const char * argv[]) {
     
     Cat * jimmy = new Cat("Jimmy");
+    std::cout << sizeof(jimmy) << std::endl;
     Mouse * jerry = new Mouse("Jerry");
     Dog snoop("Snoop");
     jimmy->noise();
@@ -61,6 +62,8 @@ int main(int argc, const char * argv[]) {
     Animal * animal = new Animal();
     noiseMaker(garfield);
     noiseMaker(animal);
+    
+    
     
     return 0;
 }
