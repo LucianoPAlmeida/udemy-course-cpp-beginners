@@ -15,8 +15,8 @@ int main(int argc, const char * argv[]) {
     std::cout << "XOR" << (10 ^ 2) << std::endl;  // "XOR"
     
     std::cout << "NOT 10" << (~10) << std::endl;  // "NOT"
-    std::cout << "NOT 10 << 2: " << (10 << 2) << std::endl;  // "NOT"
-    std::cout << "NOT 10 >> 1: " << (10 >> 1) << std::endl;  // "NOT"
+    std::cout << "NOT 10 << 2: " << (10 << 2) << std::endl;  // "bit shift left"
+    std::cout << "NOT 10 >> 1: " << (10 >> 1) << std::endl;  // "bit shift right"
 
     return 0;
 }
