@@ -37,8 +37,11 @@ int main(int argc, const char * argv[]) {
         return 1;
     }
     
-    SDL_Texture * texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_BGR888, SDL_TEXTUREACCESS_STATIC,
+    SDL_Texture * texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC,
                                               SCREEN_WIDTH, SCREEN_HEIGHT);
+    SDL_SetRenderDrawColor(renderer, 56, 45, 90, 255);
+    SDL_RenderClear(renderer);
+    SDL_RenderPresent(renderer);
     
     if( texture == NULL) {
         std::cout << "SDL Sadness" << std::endl;
