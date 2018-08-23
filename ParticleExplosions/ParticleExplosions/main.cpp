@@ -39,8 +39,11 @@ int main(int argc, const char * argv[]) {
     
     SDL_Texture * texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC,
                                               SCREEN_WIDTH, SCREEN_HEIGHT);
-    SDL_SetRenderDrawColor(renderer, 56, 45, 90, 255);
+    Uint32 * buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
+    memset(buffer, 255, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
+    SDL_UpdateTexture(texture, NULL, buffer, SCREEN_WIDTH * sizeof(Uint32));
     SDL_RenderClear(renderer);
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
     SDL_RenderPresent(renderer);
     
     if( texture == NULL) {
@@ -55,7 +58,6 @@ int main(int argc, const char * argv[]) {
     
     SDL_Event event;
     
-    Uint32 * buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
     
     
     while (!quit) {
