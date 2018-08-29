@@ -15,7 +15,7 @@ int main(int argc, const char * argv[]) {
     
     pthread_mutex_init(&mutex, NULL);
     
-    pthread_mutexattr_t attr;
+    pthread_mutexattr_t attr = pthread_mutexattr_t();
     pthread_mutexattr_init(&attr);
     pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
     
