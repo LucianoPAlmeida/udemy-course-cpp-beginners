@@ -20,18 +20,15 @@ int main(int argc, const char * argv[]) {
         std::cout << "SDL Fail to initialize" << std::endl;
     }
     
-    while (true) {
+    while (screen->processEvents()) {
         //TODO: Particle handle.
+        
         for(int y=0; y < Screen::SCREEN_HEIGHT; y++) {
             for(int x=0; x < Screen::SCREEN_WIDTH; x++) {
                 screen->setPixel(x, y, 128, 0, 255);
             }
         }
         screen->update();
-//        screen->setPixel(300, 400, 255, 255, 255);
-        if(!screen->processEvents()) {
-            break;
-        }
     }
     
     screen->close();

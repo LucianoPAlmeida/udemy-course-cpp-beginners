@@ -13,13 +13,13 @@ namespace particles {
     }
     
     bool Screen::init() {
-        if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+        if(SDL_Init(SDL_INIT_VIDEO) < 0) {
             std::cout << "SDL Couldn't init" << std::endl;
             return false;
         }
-        this->m_window = SDL_CreateWindow(this->m_name->c_str(),
-                                          SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-                                          SCREEN_HEIGHT, SCREEN_WIDTH, SDL_WINDOW_SHOWN);
+        m_window = SDL_CreateWindow(m_name->c_str(),
+                                    SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+                                    SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 
         if (m_window == NULL) {
             SDL_Quit();
@@ -27,14 +27,13 @@ namespace particles {
         }
         
         m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_PRESENTVSYNC);
-        
+        m_texture = SDL_CreateTexture(m_renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC,
+                                      SCREEN_WIDTH, SCREEN_HEIGHT);
         if(m_renderer == NULL) {
             SDL_Quit();
             return false;
         }
-
-        m_texture = SDL_CreateTexture(m_renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC,
-                                                  SCREEN_WIDTH, SCREEN_HEIGHT);
+        
         m_buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
         memset(m_buffer, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
         this->update();
@@ -54,6 +53,7 @@ namespace particles {
         SDL_RenderClear(m_renderer);
         SDL_RenderCopy(m_renderer, m_texture, NULL, NULL);
         SDL_RenderPresent(m_renderer);
+
     }
     
     void Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue) {
@@ -69,14 +69,12 @@ namespace particles {
         color += alpha;
         
         m_buffer[(y * SCREEN_WIDTH) + x] = color;
-        
-        this->update();
     }
     
     bool Screen::processEvents() {
         SDL_Event event;
         
-        while (SDL_WaitEvent (&event)) {
+        while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
                 return false;
             }
