@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B20C53672141FB4F00160D54 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B20C53652141FB4F00160D54 /* Screen.cpp */; };
 		B23B6E1920C047E6008BA66F /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B23B6E1820C047E6008BA66F /* libSDL2.a */; };
 		B2609B6B20BE503F0084C1AF /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B2609B6A20BE503F0084C1AF /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B20C53652141FB4F00160D54 /* Screen.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Screen.cpp; sourceTree = "<group>"; };
+		B20C53662141FB4F00160D54 /* Screen.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Screen.hpp; sourceTree = "<group>"; };
 		B23B6E1820C047E6008BA66F /* libSDL2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDL2.a; path = ../../../../../../../../opt/local/lib/libSDL2.a; sourceTree = "<group>"; };
 		B2609B6720BE503F0084C1AF /* ParticleExplosions */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ParticleExplosions; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2609B6A20BE503F0084C1AF /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -70,6 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				B2609B6A20BE503F0084C1AF /* main.cpp */,
+				B20C53652141FB4F00160D54 /* Screen.cpp */,
+				B20C53662141FB4F00160D54 /* Screen.hpp */,
 			);
 			path = ParticleExplosions;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2609B6B20BE503F0084C1AF /* main.cpp in Sources */,
+				B20C53672141FB4F00160D54 /* Screen.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,11 @@
 
 #include <iostream>
 
+int tail_recursive_function(int n) {
+    if (n == 0) return n;
+    return tail_recursive_function(n - 1);
+}
+
 int main(int argc, const char * argv[]) {
     std::cout << "10 and 2" << std::endl;
     std::cout << "AND" << (10 & 2) << std::endl;  // "AND"
@@ -18,5 +23,9 @@ int main(int argc, const char * argv[]) {
     std::cout << "NOT 10 << 2: " << (10 << 2) << std::endl;  // "bit shift left"
     std::cout << "NOT 10 >> 1: " << (10 >> 1) << std::endl;  // "bit shift right"
 
+    std::cout << tail_recursive_function(4) << std::endl;
+    
     return 0;
 }
+
+

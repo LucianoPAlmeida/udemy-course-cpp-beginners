@@ -8,72 +8,34 @@
 
 #include <iostream>
 #include <SDL.h>
+#include "Screen.hpp"
+
+using namespace particles;
 
 int main(int argc, const char * argv[]) {
-    const int SCREEN_WIDTH = 600;
-    const int SCREEN_HEIGHT = 800;
     
-    if(SDL_Init(SDL_INIT_VIDEO) < 0) {
-        std::cout << "SDL Couldn't init" << std::endl;
-        return 1;
-    }
-    std::cout << "SDL initialized" << std::endl;
-    SDL_Window * window = SDL_CreateWindow("Particle Explosion",
-                                           SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
-                                           SCREEN_HEIGHT, SCREEN_WIDTH, SDL_WindowFlags::SDL_WINDOW_RESIZABLE);
-    if (window == NULL) {
-        std::cout << "SDL Sadness" << std::endl;
-        SDL_Quit();
-    } else {
-        SDL_ShowWindow(window);
+    Screen * screen = new Screen(new std::string("Particles Explosion"));
+    
+    if (!screen->init()) {
+        std::cout << "SDL Fail to initialize" << std::endl;
     }
     
-    SDL_Renderer * renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_PRESENTVSYNC);
-    
-    if( renderer == NULL) {
-        std::cout << "SDL Sadness" << std::endl;
-        SDL_ShowWindow(window);
-        SDL_Quit();
-        return 1;
-    }
-    
-    SDL_Texture * texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STATIC,
-                                              SCREEN_WIDTH, SCREEN_HEIGHT);
-    Uint32 * buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
-    memset(buffer, 255, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
-    SDL_UpdateTexture(texture, NULL, buffer, SCREEN_WIDTH * sizeof(Uint32));
-    SDL_RenderClear(renderer);
-    SDL_RenderCopy(renderer, texture, NULL, NULL);
-    SDL_RenderPresent(renderer);
-    
-    if( texture == NULL) {
-        std::cout << "SDL Sadness" << std::endl;
-        SDL_DestroyRenderer(renderer);
-        SDL_ShowWindow(window);
-        SDL_Quit();
-        return 1;
-    }
-    
-    bool quit = false;
-    
-    SDL_Event event;
-    
-    
-    
-    while (!quit) {
-        //TODO: Stuff
-        
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_EventType::SDL_QUIT) {
-                quit = true;
+    while (true) {
+        //TODO: Particle handle.
+        for(int y=0; y < Screen::SCREEN_HEIGHT; y++) {
+            for(int x=0; x < Screen::SCREEN_WIDTH; x++) {
+                screen->setPixel(x, y, 128, 0, 255);
             }
+        }
+        screen->update();
+//        screen->setPixel(300, 400, 255, 255, 255);
+        if(!screen->processEvents()) {
+            break;
         }
     }
     
-    SDL_DestroyTexture(texture);
-    SDL_DestroyRenderer(renderer);
-    SDL_DestroyWindow(window);
-    SDL_Quit();
-    delete [] buffer;
+    screen->close();
+    delete screen;
+    
     return 0;
 }
