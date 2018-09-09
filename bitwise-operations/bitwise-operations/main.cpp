@@ -13,6 +13,10 @@ int tail_recursive_function(int n) {
     return tail_recursive_function(n - 1);
 }
 
+template <typename T> T const& max(T const& i, T const& j ) {
+    return i < j ? j: i;
+}
+
 int main(int argc, const char * argv[]) {
     std::cout << "10 and 2" << std::endl;
     std::cout << "AND" << (10 & 2) << std::endl;  // "AND"
@@ -25,6 +29,12 @@ int main(int argc, const char * argv[]) {
 
     std::cout << tail_recursive_function(4) << std::endl;
     
+    int m = max(130, 30);
+    double md = max(20.1, 25.5);
+    
+    std::cout << "Max: " << m << std::endl;
+    std::cout << "Max Float: " << md << std::endl;
+
     return 0;
 }
 
