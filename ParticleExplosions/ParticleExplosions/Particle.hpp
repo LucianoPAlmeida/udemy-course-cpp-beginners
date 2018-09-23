@@ -10,18 +10,18 @@
 #define Particle_hpp
 
 #include <stdio.h>
+#include <stdlib.h>
+
 namespace particles {
     
-    class Particle {
+    struct Particle {
     private:
         double m_x;
         double m_y;
     public:
         Particle();
         virtual ~Particle();
-        
     };
 }
-
 
 #endif /* Particle_hpp */

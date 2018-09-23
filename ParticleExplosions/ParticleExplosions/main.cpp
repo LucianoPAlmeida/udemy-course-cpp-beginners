@@ -9,12 +9,18 @@
 #include <iostream>
 #include <SDL.h>
 #include "Screen.hpp"
+#include "Particle.hpp"
+#include "Swarm.hpp"
 
 using namespace particles;
 
 int main(int argc, const char * argv[]) {
     
+    srand((unsigned int)time(NULL));
+    
     Screen * screen = new Screen(new std::string("Particles Explosion"));
+    
+    Swarm swarm;
     
     if (!screen->init()) {
         std::cout << "SDL Fail to initialize" << std::endl;

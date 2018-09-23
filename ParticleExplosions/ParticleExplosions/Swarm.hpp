@@ -10,8 +10,18 @@
 #define Swarm_hpp
 
 #include <stdio.h>
-class Swarm {
-    
-};
+#include "Particle.hpp"
+
+namespace particles {
+    class Swarm {
+    public:
+        const static int N_PARTICLES = 5000;
+    private:
+        Particle * const m_particles;
+    public:
+        Swarm();
+        virtual ~Swarm();
+    };
+}
 
 #endif /* Swarm_hpp */
