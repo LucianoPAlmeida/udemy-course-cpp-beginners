@@ -29,7 +29,6 @@ int main(int argc, const char * argv[]) {
     while (screen->processEvents()) {
         //TODO: Particle handle.
         swarm->update();
-        screen->clear();
         
         int elapsed = SDL_GetTicks();
         unsigned char green = (unsigned char)((1 + sin(elapsed * 0.0001)) * 128);
@@ -47,7 +46,7 @@ int main(int argc, const char * argv[]) {
             
             screen->setPixel(x, y, red, green, blue);
         }
-        
+        screen->boxBlur();
         screen->update();
         
     }

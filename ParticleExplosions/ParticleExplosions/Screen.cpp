@@ -35,7 +35,11 @@ namespace particles {
         }
         
         m_buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
+        m_blur_buffer = new Uint32[SCREEN_WIDTH * SCREEN_HEIGHT];
+
         memset(m_buffer, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
+        memset(m_blur_buffer, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
+
         this->update();
         
         if(m_texture == NULL) {
@@ -77,6 +81,7 @@ namespace particles {
     
     void Screen::clear() {
         memset(m_buffer, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
+        memset(m_blur_buffer, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
     }
     
     bool Screen::processEvents() {
@@ -97,9 +102,50 @@ namespace particles {
         SDL_Quit();
     }
     
+    void Screen::boxBlur() {
+        Uint32 * aux = m_buffer;
+        m_buffer = m_blur_buffer;
+        m_blur_buffer = aux;
+        applyBlur();
+    }
+    
+    void Screen::applyBlur() {
+        for (int x = 0; x < SCREEN_WIDTH; x++) {
+            for (int y = 0; y < SCREEN_HEIGHT; y++) {
+                
+                int totalRed = 0;
+                int totalGreen = 0;
+                int totalBlue = 0;
+                for (int row = -1; row <=1; row++) {
+                    for (int col = -1; col <=1; col++) {
+                        int currentX = x + col;
+                        int currentY = y + row;
+                        if (currentX >= 0 && currentX < SCREEN_WIDTH && currentY >=0 && currentY < SCREEN_HEIGHT) {
+                            Uint32 color = m_blur_buffer[currentY*SCREEN_WIDTH + currentX];
+                            Uint8 red = color >> 24;
+                            Uint8 green = color >> 16;
+                            Uint8 blue = color >> 8;
+                            
+                            totalRed += red;
+                            totalGreen += green;
+                            totalBlue += blue;
+                        }
+                    }
+                }
+                
+                Uint8 red = totalRed/9;
+                Uint8 green = totalGreen/9;
+                Uint8 blue = totalBlue/9;
+                
+                setPixel(x, y, red, green, blue);
+            }
+        }
+    }
+    
     Screen::~Screen() {
         delete m_name;
         delete [] m_buffer;
+        delete [] m_blur_buffer;
     }
     
 }

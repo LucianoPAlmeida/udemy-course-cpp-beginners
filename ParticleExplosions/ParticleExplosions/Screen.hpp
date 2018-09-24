@@ -22,7 +22,9 @@ namespace particles {
         SDL_Renderer *m_renderer;
         SDL_Texture *m_texture;
         Uint32 *m_buffer;
+        Uint32 *m_blur_buffer;
         std::string * m_name;
+        void applyBlur();
     public:
         Screen(std::string * name);
         bool init();
@@ -30,6 +32,7 @@ namespace particles {
         void clear();
         void close();
         void update();
+        void boxBlur();
         void setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue);
         ~Screen();
     };
