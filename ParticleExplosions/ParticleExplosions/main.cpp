@@ -27,7 +27,6 @@ int main(int argc, const char * argv[]) {
     }
     
     while (screen->processEvents()) {
-        //TODO: Particle handle.
         swarm->update();
         
         int elapsed = SDL_GetTicks();
