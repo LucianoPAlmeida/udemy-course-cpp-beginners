@@ -20,6 +20,8 @@ namespace particles {
         Particle * const m_particles;
     public:
         Swarm();
+        Particle * getParticles() { return m_particles; }
+        void update();
         virtual ~Swarm();
     };
 }

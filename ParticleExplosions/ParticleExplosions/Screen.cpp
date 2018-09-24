@@ -57,6 +57,10 @@ namespace particles {
     }
     
     void Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue) {
+        if (x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT) {
+            return;
+        }
+        
         const Uint8 alpha = 0xFF;
         
         Uint32 color = 0;
@@ -69,6 +73,10 @@ namespace particles {
         color += alpha;
         
         m_buffer[(y * SCREEN_WIDTH) + x] = color;
+    }
+    
+    void Screen::clear() {
+        memset(m_buffer, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
     }
     
     bool Screen::processEvents() {

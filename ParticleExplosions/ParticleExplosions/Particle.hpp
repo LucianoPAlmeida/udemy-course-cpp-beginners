@@ -15,11 +15,17 @@
 namespace particles {
     
     struct Particle {
-    private:
         double m_x;
         double m_y;
+    private:
+        double m_xspeed;
+        double m_yspeed;
+        void roundCoordinate(double * coordinate);
+    public:
+        constexpr const static double PARTICLE_SPEED = 0.01;
     public:
         Particle();
+        void updateRandomPosition();
         virtual ~Particle();
     };
 }

@@ -20,7 +20,7 @@ int main(int argc, const char * argv[]) {
     
     Screen * screen = new Screen(new std::string("Particles Explosion"));
     
-    Swarm swarm;
+    Swarm * swarm = new Swarm();
     
     if (!screen->init()) {
         std::cout << "SDL Fail to initialize" << std::endl;
@@ -28,21 +28,29 @@ int main(int argc, const char * argv[]) {
     
     while (screen->processEvents()) {
         //TODO: Particle handle.
+        swarm->update();
+        screen->clear();
+        
         int elapsed = SDL_GetTicks();
         unsigned char green = (unsigned char)((1 + sin(elapsed * 0.0001)) * 128);
         unsigned char red = (unsigned char)((1 + sin(elapsed * 0.0002)) * 128);
         unsigned char blue = (unsigned char)((1 + sin(elapsed * 0.0005)) * 128);
 
-        for(int y=0; y < Screen::SCREEN_HEIGHT; y++) {
-            for(int x=0; x < Screen::SCREEN_WIDTH; x++) {
-                screen->setPixel(x, y, red, green, blue);
-            }
+        const Particle * const particles = swarm->getParticles();
+        for(int i = 0; i<Swarm::N_PARTICLES; i++) {
+            Particle particle = particles[i];
+            int x = (particle.m_x + 1) * Screen::SCREEN_WIDTH/2;
+            int y = (particle.m_y + 1) * Screen::SCREEN_HEIGHT/2;
+            
+            screen->setPixel(x, y, red, green, blue);
         }
+        
         screen->update();
+        
     }
     
     screen->close();
     delete screen;
-    
+    delete swarm;
     return 0;
 }
