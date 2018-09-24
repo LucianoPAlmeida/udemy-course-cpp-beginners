@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 namespace particles {
     
@@ -18,11 +19,9 @@ namespace particles {
         double m_x;
         double m_y;
     private:
-        double m_xspeed;
-        double m_yspeed;
+        double m_speed;
+        double m_direction;
         void roundCoordinate(double * coordinate);
-    public:
-        constexpr const static double PARTICLE_SPEED = 0.01;
     public:
         Particle();
         void updateRandomPosition();

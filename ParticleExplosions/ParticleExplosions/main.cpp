@@ -36,11 +36,14 @@ int main(int argc, const char * argv[]) {
         unsigned char red = (unsigned char)((1 + sin(elapsed * 0.0002)) * 128);
         unsigned char blue = (unsigned char)((1 + sin(elapsed * 0.0005)) * 128);
 
+        const double halfScreenWidth = Screen::SCREEN_WIDTH/2;
+        const double halfScreenHeight = Screen::SCREEN_HEIGHT/2;
+        
         const Particle * const particles = swarm->getParticles();
         for(int i = 0; i<Swarm::N_PARTICLES; i++) {
             Particle particle = particles[i];
-            int x = (particle.m_x + 1) * Screen::SCREEN_WIDTH/2;
-            int y = (particle.m_y + 1) * Screen::SCREEN_HEIGHT/2;
+            int x = (particle.m_x + 1) * halfScreenWidth;
+            int y = particle.m_y * halfScreenWidth + halfScreenHeight;
             
             screen->setPixel(x, y, red, green, blue);
         }
