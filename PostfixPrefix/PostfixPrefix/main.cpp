@@ -16,5 +16,11 @@ int main(int argc, const char * argv[]) {
     std::cout << "Postfix = " << value1++ << std::endl;
     std::cout << "Prefix = " << ++value2 << std::endl;
 
+    
+    int8_t num = 4; // 00000100
+    unsigned int bit = (num >> 2) & 0x00000001;
+    
+    std::cout << "Bit = " << bit << std::endl;
+    
     return 0;
 }
