@@ -21,7 +21,7 @@ namespace particles {
     public:
         Swarm();
         Particle * getParticles() { return m_particles; }
-        void update();
+        void moveParticles();
         virtual ~Swarm();
     };
 }

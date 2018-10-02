@@ -16,7 +16,7 @@ namespace particles {
         m_speed *= m_speed;
     }
     
-    void Particle::updateRandomPosition() {
+    void Particle::moveToDirection() {
         m_x += m_speed * cos(m_direction);
         m_y += m_speed * sin(m_direction);
     }
@@ -28,7 +28,6 @@ namespace particles {
     }
     
     Particle::~Particle() {
-        
     }
 
 }

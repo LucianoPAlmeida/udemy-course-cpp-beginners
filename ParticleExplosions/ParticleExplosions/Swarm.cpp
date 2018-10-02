@@ -16,9 +16,9 @@ namespace particles {
         delete [] m_particles;
     }
     
-    void Swarm::update() {
+    void Swarm::moveParticles() {
         for(int i = 0; i<Swarm::N_PARTICLES; i++) {
-            m_particles[i].updateRandomPosition();
+            m_particles[i].moveToDirection();
         }
     }
 }

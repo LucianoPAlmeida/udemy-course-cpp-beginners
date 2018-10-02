@@ -24,7 +24,7 @@ namespace particles {
         void roundCoordinate(double * coordinate);
     public:
         Particle();
-        void updateRandomPosition();
+        void moveToDirection();
         virtual ~Particle();
     };
 }
