@@ -34,7 +34,16 @@ int main(int argc, const char * argv[]) {
     
     std::cout << "Max: " << m << std::endl;
     std::cout << "Max Float: " << md << std::endl;
-
+    
+    
+    // Bit representation
+    int8_t value = 1;
+    
+    for(int i = sizeof(value) * 8; i >= 0; i--) {
+        std::cout << ((value >> i) & 0x00000001);
+    }
+    std::cout << std::endl;
+    
     return 0;
 }
 
