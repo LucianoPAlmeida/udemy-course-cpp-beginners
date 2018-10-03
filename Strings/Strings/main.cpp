@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include "Integer.hpp"
 
 void reverseChar(char * cArray, int lenght);
 
@@ -25,6 +26,18 @@ int main(int argc, const char * argv[]) {
     std::cout << array << std::endl;
     
     delete reversed;
+    
+    Integer interger = 1;
+    
+    int v = interger;
+    
+    std::cout << "Value: " << interger << std::endl;
+    std::cout << "Primitive: " << v << std::endl;
+    
+    interger+= 3;
+    std::cout << "Pe: " << interger << std::endl;
+
+    
     return 0;
 }
 
