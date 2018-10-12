@@ -37,6 +37,5 @@ int main(int argc, const char * argv[]) {
         }
         file.close();
     }
-    
     return 0;
 }
