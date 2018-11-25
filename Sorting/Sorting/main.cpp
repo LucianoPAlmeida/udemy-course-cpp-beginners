@@ -9,6 +9,8 @@
 #include <iostream>
 #include <array>
 #include <vector>
+#include <chrono>
+#include <ctime>
 
 int main(int argc, const char * argv[]) {
     
@@ -28,5 +30,10 @@ int main(int argc, const char * argv[]) {
         std::cout << i << " " << std::flush;
     }
     std::cout << std::endl;
+    
+    
+    auto clock = std::chrono::system_clock::now();
+    auto time = std::chrono::system_clock::to_time_t(clock);
+    std::cout << std::ctime(&time) << std::endl;
     return 0;
 }
