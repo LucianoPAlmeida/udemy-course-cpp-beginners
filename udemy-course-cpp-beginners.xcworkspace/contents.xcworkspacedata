@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Templates/Templates.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Strings/Strings.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Sorting/Sorting.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RAII/RAII.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PThread/PThread.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:PostfixPrefix/PostfixPrefix.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pointers/Pointers.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ParticleExplosions/ParticleExplosions.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:First Cpp/First Cpp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Files/Files.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:CppGuidelines/CppGuidelines.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Classes/Classes.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Calling convetion/Calling convetion.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:bitwise-operations/bitwise-operations.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Arrays/Arrays.xcodeproj">
+   </FileRef>
+</Workspace>
