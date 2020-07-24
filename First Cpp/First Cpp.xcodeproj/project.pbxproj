@@ -237,6 +237,7 @@
 		B23B405B20A935DE00CAC2C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43Z9WE284C;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -246,6 +247,7 @@
 		B23B405C20A935DE00CAC2C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 43Z9WE284C;
 				PRODUCT_NAME = "$(TARGET_NAME)";
